@@ -14,7 +14,21 @@ import javax.persistence.*
 @Entity
 @Table(name = "PRODUCTOS")
 @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto")
-data class Producto(
+/*data */class Producto(
+    /*@Id @GeneratedValue
+    @GenericGenerator(
+        name = "UUID",
+        strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "id")
+    @Type(type = "uuid-char")
+    val id: UUID = UUID.randomUUID(),*/
+    /*val tipoProducto: TipoProducto,
+    val marca: String,
+    val modelo: String,
+    var precio: Double = 0.0,
+    var stock: Int = 0*/
+) {
     @Id @GeneratedValue
     @GenericGenerator(
         name = "UUID",
@@ -22,21 +36,14 @@ data class Producto(
     )
     @Column(name = "id")
     @Type(type = "uuid-char")
-    val id: UUID = UUID.randomUUID(),
-    val tipoProducto: TipoProducto,
-    val marca: String,
-    val modelo: String,
-    var precio: Double = 0.0,
-    var stock: Int = 0
-) {
-//    lateinit
-/*    lateinit var tipoProducto: TipoProducto
+    lateinit var id: UUID
+    lateinit var tipoProducto: TipoProducto
     lateinit var marca: String
     lateinit var modelo: String
     var precio: Double = 0.0
-    var stock: Int = 0*/
+    var stock: Int = 0
 
-/*    constructor(
+    constructor(
         id: UUID?,
         tipoProducto: TipoProducto,
         marca: String,
@@ -50,5 +57,5 @@ data class Producto(
         this.modelo = modelo
         this.precio = precio
         this.stock = stock ?: 0
-    }*/
+    }
 }

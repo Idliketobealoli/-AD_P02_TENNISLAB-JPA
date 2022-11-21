@@ -3,9 +3,15 @@ package models
 import models.enums.TipoMaquina
 import java.time.LocalDate
 import java.util.*
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.NamedQuery
 
+@Entity
+@NamedQuery(name = "Encordadora.findAll", query = "SELECT e FROM Encordadora e")
 class Encordadora():Maquina() {
     override var id = super.id
+    @Column(name = "is_manual")
     var isManual: Boolean = false
     var maxTension: Double = 0.0
     var minTension: Double = 0.0

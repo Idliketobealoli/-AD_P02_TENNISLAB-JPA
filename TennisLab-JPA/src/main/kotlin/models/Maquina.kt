@@ -1,15 +1,34 @@
 package models
 
 import models.enums.TipoMaquina
+import org.hibernate.annotations.GenericGenerator
+import org.hibernate.annotations.Type
 import java.time.LocalDate
 import java.util.*
+import javax.persistence.*
 
+@Entity
+@Table(name = "MAQUINAS")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@NamedQuery(name = "Maquina.findAll", query = "SELECT m FROM Maquina m")
 open class Maquina() {
+    @Id @GeneratedValue
+    @GenericGenerator(
+        name = "UUID",
+        strategy = "org.hibernate.id.UUIDGenerator",
+    )
+    @Column(name = "id")
+    @Type(type = "uuid-char")
     open lateinit var id: UUID
     lateinit var modelo: String
     lateinit var marca: String
+
+    @Column(name = "fecha_adquisicion")
+    @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaAdquisicion: LocalDate
     lateinit var numeroSerie: String
+
+    //    TODO revisar si habría que meterle alguna anotación a los enums
     lateinit var tipoMaquina: TipoMaquina
 
     constructor(

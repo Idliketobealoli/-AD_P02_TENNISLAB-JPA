@@ -1,8 +1,21 @@
 package models
 
+import org.hibernate.annotations.GenericGenerator
+import org.hibernate.annotations.Type
 import java.util.UUID
+import javax.persistence.*
 
+@Entity
+@Table(name = "USERS")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 class User() {
+    @Id @GeneratedValue
+    @GenericGenerator(
+        name = "UUID",
+        strategy = "org.hibernate.id.UUIDGenerator",
+    )
+    @Column(name = "id")
+    @Type(type = "uuid-char")
     lateinit var id:UUID
     lateinit var nombre: String
     lateinit var apellido: String

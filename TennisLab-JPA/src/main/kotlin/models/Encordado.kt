@@ -2,9 +2,15 @@ package models
 
 import models.enums.TipoTarea
 import java.util.*
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.NamedQuery
 
+@Entity
+@NamedQuery(name = "Encordado.findAll", query = "SELECT e FROM Encordado e")
 class Encordado():Tarea() {
     override var id: UUID = super.id
+    @Column(name = "tension_horizontal")
     var tensionHorizontal: Double = 0.0
     lateinit var cordajeHorizontal: Producto
     var tensionVertical: Double = 0.0

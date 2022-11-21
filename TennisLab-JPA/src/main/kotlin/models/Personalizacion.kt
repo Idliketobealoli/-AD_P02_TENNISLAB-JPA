@@ -2,9 +2,14 @@ package models
 
 import models.enums.TipoTarea
 import java.util.*
+import javax.persistence.*
 
+@Entity
+//@Table(name = "PERSONALIZACIONES")
+@NamedQuery(name = "Personalizacion.findAll", query = "SELECT p FROM Personalizacion p")
 class Personalizacion(): Tarea() {
     override var id: UUID = super.id
+    @Column(name = "peso")
     var peso: Int = 0
     var balance: Double = 0.0
     var rigidez: Int = 0

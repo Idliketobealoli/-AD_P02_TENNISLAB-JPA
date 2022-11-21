@@ -1,26 +1,45 @@
 package models
 
 import models.enums.PedidoEstado
+import org.hibernate.annotations.GenericGenerator
+import org.hibernate.annotations.Type
 import java.time.LocalDate
 import java.util.*
+import javax.persistence.*
 
+@Entity
+@Table(name = "PEDIDOS")
+@NamedQuery(name = "Pedido.findAll", query = "SELECT p FROM Pedido p")
 class Pedido() {
+    @Id @GeneratedValue
+    @GenericGenerator(
+        name = "UUID",
+        strategy = "org.hibernate.id.UUIDGenerator",
+    )
+    @Column(name = "id", updatable = false, nullable = false)
+    @Type(type = "uuid-char")
     lateinit var id: UUID
+    @OneToMany(mappedBy = "Pedido", fetch = FetchType.EAGER)
     lateinit var tareas: List<Tarea>
     lateinit var client: User
+    @OneToMany(mappedBy = "Pedido", fetch = FetchType.EAGER)
     lateinit var turnos: List<Turno>
     lateinit var state: PedidoEstado
+    @Column(name = "fecha_entrada")
     lateinit var fechaEntrada: LocalDate
+    @Column(name = "fecha_programada")
     lateinit var fechaProgramada: LocalDate
+    @Column(name = "fecha_salida")
     lateinit var fechaSalida: LocalDate
-    lateinit var fechaEntrega: LocalDate // todo Pone que en principio tendrán que ser la misma fecha y que más adelante se actualizará a la que termine siendo
+    @Column(name = "fecha_entrega")
+    lateinit var fechaEntrega: LocalDate
     var precio: Double = 0.0
 
     constructor(
         id: UUID?,
-        tareas: List<Tarea>, // todo SizedIterable
+        tareas: List<Tarea>,
         client: User,
-        turnos: List<Turno>, // todo SizedIterable
+        turnos: List<Turno>,
         state: PedidoEstado,
         fechaEntrada: LocalDate?,
         fechaProgramada: LocalDate,
