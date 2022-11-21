@@ -1,16 +1,37 @@
 package models
 
+import org.hibernate.annotations.GenericGenerator
+import org.hibernate.annotations.Type
 import java.time.LocalDateTime
 import java.util.*
+import javax.persistence.*
 
+@Entity
+@Table(name = "TURNOS")
+@NamedQuery(name = "Turno.findAll", query = "SELECT t FROM Turno t")
 class Turno() {
+    @Id @GeneratedValue
+    @GenericGenerator(
+        name = "UUID",
+        strategy = "org.hibernate.id.UUIDGenerator",
+    )
+    @Column(name = "id")
+    @Type(type = "uuid-char")
     lateinit var id: UUID
+    @OneToOne
     lateinit var worker: User
+    @OneToOne
     lateinit var maquina: Maquina
+    @Column(name = "hora_inicio")
+    @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var horaInicio: LocalDateTime
+    @Column(name = "hora_fin")
+    @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var horaFin: LocalDateTime
     var numPedidosActivos: Int = 0
+    @OneToOne
     var tarea1: Tarea? = null
+    @OneToOne
     var tarea2: Tarea? = null
 
     constructor(
@@ -37,4 +58,5 @@ class Turno() {
             numPedidosActivos++
         }
     }
+
 }
