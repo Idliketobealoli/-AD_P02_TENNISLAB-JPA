@@ -6,7 +6,23 @@ import models.User
 import java.util.*
 import javax.persistence.TypedQuery
 
-class UserRepositoryImpl:UserRepository {
+class UserRepositoryImpl(User: User) :UserRepository {
+    override fun findByEmail(email: String): User? {
+        var user: User? = null
+        HibernateManager.query {
+            user = manager.find(User::class.java, email)
+        }
+        return user
+    }
+
+    override fun findByPhone(phone: String): User? {
+        var user: User? = null
+        HibernateManager.query {
+            user = manager.find(User::class.java, phone)
+        }
+        return user
+    }
+
     override fun readAll(): List<User> {
         var users = mutableListOf<User>()
         HibernateManager.query {
@@ -42,4 +58,6 @@ class UserRepositoryImpl:UserRepository {
         }
         return result
     }
+
+
 }

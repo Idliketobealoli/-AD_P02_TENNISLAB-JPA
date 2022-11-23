@@ -3,10 +3,13 @@ package repositories.adquisicion
 import db.HibernateManager
 import db.HibernateManager.manager
 import models.Adquisicion
+import models.Producto
+import models.Tarea
+import models.User
 import java.util.*
 import javax.persistence.TypedQuery
 
-class AdquisicionRepositoryImpl: AdquisicionRepository {
+class AdquisicionRepositoryImpl(Adquisicion: Adquisicion, Tarea: Tarea, Producto: Producto, User: User) : AdquisicionRepository {
     override fun readAll(): List<Adquisicion> {
         var adquisiciones = mutableListOf<Adquisicion>()
         HibernateManager.query {

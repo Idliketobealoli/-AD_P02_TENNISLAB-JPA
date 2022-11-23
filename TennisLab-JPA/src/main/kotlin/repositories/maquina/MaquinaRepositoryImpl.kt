@@ -5,7 +5,7 @@ import models.Maquina
 import java.util.*
 import javax.persistence.TypedQuery
 
-class MaquinaRepositoryImpl: MaquinaRepository {
+class MaquinaRepositoryImpl(Maquina: Maquina) : MaquinaRepository {
     override fun readAll(): List<Maquina> {
         var maquinas = mutableListOf<Maquina>()
         HibernateManager.query {

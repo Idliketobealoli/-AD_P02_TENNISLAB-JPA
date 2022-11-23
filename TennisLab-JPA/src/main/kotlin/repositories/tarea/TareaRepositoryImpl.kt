@@ -1,11 +1,13 @@
 package repositories.tarea
 
 import db.HibernateManager
+import models.Producto
 import models.Tarea
+import models.User
 import java.util.*
 import javax.persistence.TypedQuery
 
-class TareaRepositoryImpl: TareaRepository {
+class TareaRepositoryImpl(Tarea: Tarea, Producto: Producto, User: User) : TareaRepository {
     override fun readAll(): List<Tarea> {
         var tareas = mutableListOf<Tarea>()
         HibernateManager.query {
