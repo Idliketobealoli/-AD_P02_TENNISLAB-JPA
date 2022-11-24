@@ -1,6 +1,7 @@
 package models
 
 import models.enums.TipoTarea
+import org.hibernate.annotations.Type
 import java.util.*
 import javax.persistence.*
 
@@ -8,10 +9,14 @@ import javax.persistence.*
 //@Table(name = "PERSONALIZACIONES")
 @NamedQuery(name = "Personalizacion.findAll", query = "SELECT p FROM Personalizacion p")
 class Personalizacion(): Tarea() {
+    @Id @GeneratedValue()
+    @Type(type = "uuid-char")
     override var id: UUID = super.id
     @Column(name = "peso")
     var peso: Int = 0
+    @Column(name = "balance")
     var balance: Double = 0.0
+    @Column(name = "rigidez")
     var rigidez: Int = 0
 
     constructor(

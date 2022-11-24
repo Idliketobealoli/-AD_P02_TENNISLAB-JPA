@@ -1,19 +1,26 @@
 package models
 
 import models.enums.TipoMaquina
+import org.hibernate.annotations.Type
 import java.time.LocalDate
 import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
 import javax.persistence.NamedQuery
 
 @Entity
 @NamedQuery(name = "Encordadora.findAll", query = "SELECT e FROM Encordadora e")
 class Encordadora():Maquina() {
+    @Id @GeneratedValue()
+    @Type(type = "uuid-char")
     override var id = super.id
     @Column(name = "is_manual")
     var isManual: Boolean = false
+    @Column(name = "max_tension")
     var maxTension: Double = 0.0
+    @Column(name = "min_tension")
     var minTension: Double = 0.0
     constructor(
         id: UUID?,

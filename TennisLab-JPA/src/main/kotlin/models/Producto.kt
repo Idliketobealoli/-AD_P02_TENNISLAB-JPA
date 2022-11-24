@@ -37,10 +37,15 @@ import javax.persistence.*
     @Column(name = "id")
     @Type(type = "uuid-char")
     lateinit var id: UUID
+    @Column(name = "tipo_producto") @Embedded
     lateinit var tipoProducto: TipoProducto
+    @Column(name = "marca")
     lateinit var marca: String
+    @Column(name = "modelo")
     lateinit var modelo: String
+    @Column(name = "precio")
     var precio: Double = 0.0
+    @Column(name = "stock")
     var stock: Int = 0
 
     constructor(

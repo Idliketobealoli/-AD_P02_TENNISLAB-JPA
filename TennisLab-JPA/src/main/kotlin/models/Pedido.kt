@@ -19,20 +19,31 @@ class Pedido() {
     @Column(name = "id", updatable = false, nullable = false)
     @Type(type = "uuid-char")
     lateinit var id: UUID
+
     @OneToMany(mappedBy = "Pedido", fetch = FetchType.EAGER)
     lateinit var tareas: List<Tarea>
+
+    @Column(name = "cliente") @Embedded
     lateinit var client: User
+
     @OneToMany(mappedBy = "Pedido", fetch = FetchType.EAGER)
     lateinit var turnos: List<Turno>
+
+    @Column(name = "estado_pedido") @Embedded
     lateinit var state: PedidoEstado
     @Column(name = "fecha_entrada")
+    @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaEntrada: LocalDate
     @Column(name = "fecha_programada")
+    @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaProgramada: LocalDate
     @Column(name = "fecha_salida")
+    @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaSalida: LocalDate
     @Column(name = "fecha_entrega")
+    @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaEntrega: LocalDate
+    @Column(name = "precio")
     var precio: Double = 0.0
 
     constructor(

@@ -18,9 +18,9 @@ class Turno() {
     @Column(name = "id")
     @Type(type = "uuid-char")
     lateinit var id: UUID
-    @OneToOne
+    @OneToOne @Column(name = "worker") @Embedded
     lateinit var worker: User
-    @OneToOne
+    @OneToOne @Column(name = "maquina") @Embedded
     lateinit var maquina: Maquina
     @Column(name = "hora_inicio")
     @Type(type = "org.hibernate.type.LocalDateTimeType")

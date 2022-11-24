@@ -1,20 +1,26 @@
 package models
 
 import models.enums.TipoTarea
+import org.hibernate.annotations.Type
+import sun.jvm.hotspot.gc.shared.Generation
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.NamedQuery
+import javax.persistence.*
 
 @Entity
 @NamedQuery(name = "Encordado.findAll", query = "SELECT e FROM Encordado e")
 class Encordado():Tarea() {
+    @Id @GeneratedValue()
+    @Type(type = "uuid-char")
     override var id: UUID = super.id
     @Column(name = "tension_horizontal")
     var tensionHorizontal: Double = 0.0
+    @Column(name = "cordaje_horizontal") @Embedded
     lateinit var cordajeHorizontal: Producto
+    @Column(name = "tension_vertical")
     var tensionVertical: Double = 0.0
+    @Column(name = "cordaje_vertical") @Embedded
     lateinit var cordajeVertical: Producto
+    @Column(name = "dos_nudos")
     var dosNudos: Boolean = false
 
     constructor(

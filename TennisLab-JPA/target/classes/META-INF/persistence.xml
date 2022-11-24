@@ -1,0 +1,38 @@
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="default">
+        <description>Version del ejercicio de Acceso a Datos con JPA</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+<!--        modelos-->
+        <class>models.Producto</class>
+        <class>models.Adquisicion</class>
+        <class>models.Encordado</class>
+        <class>models.User</class>
+        <class>models.Turno</class>
+        <class>models.Tarea</class>
+        <class>models.Personalizadora</class>
+        <class>models.Personalizacion</class>
+        <class>models.Pedido</class>
+        <class>models.Maquina</class>
+        <class>models.Encordadora</class>
+
+<!--        TODO hay que adaptar esto con la base de datos que usemos-->
+        <properties>
+            <!--<property name="hibernate.connection.url" value="jdbc:h2:mem:tenistas;DB_CLOSE_DELAY=-1;"/>
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <property name="hibernate.connection.user" value="sa"/>
+            <property name="hibernate.connection.password" value=""/>
+            &lt;!&ndash;   Para ver las consultas   &ndash;&gt;
+            <property name="hibernate.show_sql" value="true"/>
+            &lt;!&ndash;   Para trabajar con el esquema
+                                        validate: validate the schema, makes no changes to the database.
+                                        update: update the schema si detecta cambios.
+                                        create: creates the schema, destroying previous data.
+                                        create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+                                        none: does nothing with the schema, makes no changes to the database  &ndash;&gt;
+            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+        </properties>
+    </persistence-unit>
+</persistence>

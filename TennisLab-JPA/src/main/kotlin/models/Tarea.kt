@@ -11,7 +11,6 @@ import javax.persistence.*
  * Clase abstracta de la entidad tarea con un identificador
  * y el producto que se pasará
  */
-// TODO revisar el funcionamiento de esta clase
 @Entity
 @Table(name = "TAREAS")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

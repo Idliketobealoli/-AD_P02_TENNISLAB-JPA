@@ -17,11 +17,16 @@ class User() {
     @Column(name = "id")
     @Type(type = "uuid-char")
     lateinit var id:UUID
+    @Column(name = "nombre")
     lateinit var nombre: String
+    @Column(name = "apellido")
     lateinit var apellido: String
+    @Column(name = "telefono")
     lateinit var telefono: String
+    @Column(name = "email")
     lateinit var email: String
     lateinit var password: String
+    @Column(name = "perfil")
     lateinit var perfil: String
 
     constructor(

@@ -20,15 +20,18 @@ open class Maquina() {
     @Column(name = "id")
     @Type(type = "uuid-char")
     open lateinit var id: UUID
+    @Column(name = "modelo")
     lateinit var modelo: String
+    @Column(name = "marca")
     lateinit var marca: String
 
     @Column(name = "fecha_adquisicion")
     @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaAdquisicion: LocalDate
+    @Column(name = "numero_serie")
     lateinit var numeroSerie: String
-
-    //    TODO revisar si habría que meterle alguna anotación a los enums
+//    Para ver el tipo de máquina se puede mirar siguiendo el uuid
+    @Embedded
     lateinit var tipoMaquina: TipoMaquina
 
     constructor(

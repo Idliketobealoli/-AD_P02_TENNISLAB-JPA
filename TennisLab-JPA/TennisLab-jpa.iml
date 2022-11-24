@@ -7,7 +7,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="TennisLab-jpa" />
-          <factory-entry name="default" />
+          <factory-entry name="default" value="b3b1f69c-0e6d-4fe2-abe6-01cd87b36ec9" />
         </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
