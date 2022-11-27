@@ -3,13 +3,13 @@ package models
 import models.enums.TipoTarea
 import org.hibernate.annotations.Type
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Embedded
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.NamedQuery
-import javax.persistence.OneToMany
+import jakarta.persistence.Column
+import jakarta.persistence.Embedded
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.Id
+import jakarta.persistence.NamedQuery
+import jakarta.persistence.OneToMany
 
 @Entity
 @NamedQuery(name = "Adquisicion.findAll", query = "SELECT a FROM Adquisicion a")

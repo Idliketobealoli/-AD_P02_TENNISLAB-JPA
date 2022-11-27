@@ -2,9 +2,8 @@ package models
 
 import models.enums.TipoTarea
 import org.hibernate.annotations.Type
-import sun.jvm.hotspot.gc.shared.Generation
 import java.util.*
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @NamedQuery(name = "Encordado.findAll", query = "SELECT e FROM Encordado e")

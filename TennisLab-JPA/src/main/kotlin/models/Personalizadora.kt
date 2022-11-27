@@ -1,19 +1,17 @@
 package models
 
+import jakarta.persistence.*
 import models.enums.TipoMaquina
 import org.hibernate.annotations.Type
 import java.time.LocalDate
 import java.util.UUID
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.NamedQuery
+
 
 @Entity
 @NamedQuery(name = "Personalizadora.findAll", query = "SELECT p FROM Personalizadora p")
 class Personalizadora(): Maquina() {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Type(type = "uuid-char")
     override var id = super.id
     @Column(name = "measures_maneuverability")

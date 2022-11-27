@@ -3,7 +3,7 @@ package models
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.util.UUID
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "USERS")

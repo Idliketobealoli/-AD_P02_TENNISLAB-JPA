@@ -4,7 +4,7 @@ import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.time.LocalDateTime
 import java.util.*
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "TURNOS")

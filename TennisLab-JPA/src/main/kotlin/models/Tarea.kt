@@ -4,7 +4,7 @@ import models.enums.TipoTarea
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.util.*
-import javax.persistence.*
+import jakarta.persistence.*
 
 /**
  * @author Iván Azagra Troya

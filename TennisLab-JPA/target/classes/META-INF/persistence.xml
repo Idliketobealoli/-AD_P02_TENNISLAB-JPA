@@ -20,19 +20,14 @@
 
 <!--        TODO hay que adaptar esto con la base de datos que usemos-->
         <properties>
-            <!--<property name="hibernate.connection.url" value="jdbc:h2:mem:tenistas;DB_CLOSE_DELAY=-1;"/>
+            <property name="hibernate.connection.url" value="jdbc:h2:~/test2"/>
             <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="hibernate.connection.user" value="sa"/>
             <property name="hibernate.connection.password" value=""/>
-            &lt;!&ndash;   Para ver las consultas   &ndash;&gt;
-            <property name="hibernate.show_sql" value="true"/>
-            &lt;!&ndash;   Para trabajar con el esquema
-                                        validate: validate the schema, makes no changes to the database.
-                                        update: update the schema si detecta cambios.
-                                        create: creates the schema, destroying previous data.
-                                        create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
-                                        none: does nothing with the schema, makes no changes to the database  &ndash;&gt;
-            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="show_sql" value="true"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
         </properties>
     </persistence-unit>
 </persistence>
