@@ -5,12 +5,13 @@ import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.time.LocalDate
 import java.util.*
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "MAQUINAS")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQuery(name = "Maquina.findAll", query = "SELECT m FROM Maquina m")
+@Embeddable
 open class Maquina() {
     @Id @GeneratedValue
     @GenericGenerator(

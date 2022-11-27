@@ -1,10 +1,10 @@
 package models
 
+import jakarta.persistence.*
 import models.enums.TipoProducto
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.util.*
-import javax.persistence.*
 
 
 /**
@@ -14,21 +14,8 @@ import javax.persistence.*
 @Entity
 @Table(name = "PRODUCTOS")
 @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto")
-/*data */class Producto(
-    /*@Id @GeneratedValue
-    @GenericGenerator(
-        name = "UUID",
-        strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column(name = "id")
-    @Type(type = "uuid-char")
-    val id: UUID = UUID.randomUUID(),*/
-    /*val tipoProducto: TipoProducto,
-    val marca: String,
-    val modelo: String,
-    var precio: Double = 0.0,
-    var stock: Int = 0*/
-) {
+@Embeddable
+class Producto() {
     @Id @GeneratedValue
     @GenericGenerator(
         name = "UUID",

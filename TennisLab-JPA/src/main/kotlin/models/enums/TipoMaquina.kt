@@ -1,5 +1,8 @@
 package models.enums
 
+import jakarta.persistence.Embeddable
+
+@Embeddable
 enum class TipoMaquina(value: String) {
     PERSONALIZADORA("PERSONALIZADORA"),
     ENCORDADORA("ENCORDADORA");
