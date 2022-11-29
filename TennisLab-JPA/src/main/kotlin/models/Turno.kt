@@ -4,7 +4,7 @@ import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.time.LocalDateTime
 import java.util.*
-import jakarta.persistence.*
+import javax.persistence.*
 
 @Entity
 @Table(name = "TURNOS")
@@ -18,9 +18,9 @@ class Turno() {
     @Column(name = "id")
     @Type(type = "uuid-char")
     lateinit var id: UUID
-    @OneToOne @Column(name = "worker") @Embedded
+    @OneToOne @Column(name = "worker")
     lateinit var worker: User
-    @OneToOne @Column(name = "maquina") @Embedded
+    @OneToOne @Column(name = "maquina")
     lateinit var maquina: Maquina
     @Column(name = "hora_inicio")
     @Type(type = "org.hibernate.type.LocalDateTimeType")

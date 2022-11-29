@@ -4,7 +4,7 @@ import models.enums.TipoTarea
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.util.*
-import jakarta.persistence.*
+import javax.persistence.*
 
 /**
  * @author Iván Azagra Troya
@@ -15,22 +15,7 @@ import jakarta.persistence.*
 @Table(name = "TAREAS")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQuery(name = "Tarea.findAll", query = "SELECT t FROM Tarea t")
-open/*data*/ class Tarea(
-    /*@Id @GeneratedValue
-    @GenericGenerator(
-        name = "UUID",
-        strategy = "org.hibernate.id.UUIDGenerator",
-    )
-    @Column(name = "uuid")
-    @Type(type = "uuid-char")
-    val id: UUID = UUID.randomUUID(),*/
-    /*@OneToMany(mappedBy = "tarea", orphanRemoval = true, fetch = FetchType.EAGER)
-    val producto: Producto,*/
-/*    var precio: Double = 0.0,
-//    TODO revisar el ManyToOne
-    @ManyToOne()
-    var user: User,
-    var tipo: TipoTarea*/
+class Tarea(
 ){
     @Id @GeneratedValue
     @GenericGenerator(

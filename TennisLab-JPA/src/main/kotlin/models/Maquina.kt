@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.time.LocalDate
 import java.util.*
-import jakarta.persistence.*
+import javax.persistence.*
 
 @Entity
 @Table(name = "MAQUINAS")

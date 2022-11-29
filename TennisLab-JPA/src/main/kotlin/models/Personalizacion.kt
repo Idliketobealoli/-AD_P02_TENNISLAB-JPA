@@ -3,7 +3,7 @@ package models
 import models.enums.TipoTarea
 import org.hibernate.annotations.Type
 import java.util.*
-import jakarta.persistence.*
+import javax.persistence.*
 
 @Entity
 //@Table(name = "PERSONALIZACIONES")

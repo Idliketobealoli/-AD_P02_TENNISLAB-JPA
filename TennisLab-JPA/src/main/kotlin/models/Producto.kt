@@ -1,6 +1,6 @@
 package models
 
-import jakarta.persistence.*
+import javax.persistence.*
 import models.enums.TipoProducto
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type

@@ -1,6 +1,6 @@
 package models
 
-import jakarta.persistence.*
+import javax.persistence.*
 import models.enums.TipoMaquina
 import org.hibernate.annotations.Type
 import java.time.LocalDate
