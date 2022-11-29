@@ -2,9 +2,9 @@ package db
 
 import java.io.Closeable
 import java.sql.SQLException
-import javax.persistence.EntityManager
-import javax.persistence.EntityTransaction
-import javax.persistence.Persistence
+import jakarta.persistence.EntityManager
+import jakarta.persistence.EntityTransaction
+import jakarta.persistence.Persistence
 
 object HibernateManager: Closeable {
 
