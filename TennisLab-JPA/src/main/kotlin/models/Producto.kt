@@ -14,7 +14,6 @@ import java.util.*
 @Entity
 @Table(name = "PRODUCTOS")
 @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto")
-@Embeddable
 class Producto() {
     @Id @GeneratedValue
     @GenericGenerator(

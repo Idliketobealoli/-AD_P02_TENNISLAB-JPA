@@ -1,6 +1,6 @@
 package models.enums
 
-import jakarta.persistence.Embeddable
+import javax.persistence.Embeddable
 
 @Embeddable
 enum class TipoMaquina(value: String) {

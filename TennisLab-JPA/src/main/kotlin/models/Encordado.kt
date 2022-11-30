@@ -3,7 +3,7 @@ package models
 import models.enums.TipoTarea
 import org.hibernate.annotations.Type
 import java.util.*
-import jakarta.persistence.*
+import javax.persistence.*
 
 @Entity
 @NamedQuery(name = "Encordado.findAll", query = "SELECT e FROM Encordado e")
@@ -13,11 +13,11 @@ class Encordado():Tarea() {
     override var id: UUID = super.id
     @Column(name = "tension_horizontal")
     var tensionHorizontal: Double = 0.0
-    @Column(name = "cordaje_horizontal") @Embedded
+    @Column(name = "cordaje_horizontal")
     lateinit var cordajeHorizontal: Producto
     @Column(name = "tension_vertical")
     var tensionVertical: Double = 0.0
-    @Column(name = "cordaje_vertical") @Embedded
+    @Column(name = "cordaje_vertical")
     lateinit var cordajeVertical: Producto
     @Column(name = "dos_nudos")
     var dosNudos: Boolean = false

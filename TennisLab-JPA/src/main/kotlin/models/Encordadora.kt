@@ -4,11 +4,11 @@ import models.enums.TipoMaquina
 import org.hibernate.annotations.Type
 import java.time.LocalDate
 import java.util.*
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.Id
-import jakarta.persistence.NamedQuery
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+import javax.persistence.NamedQuery
 
 @Entity
 @NamedQuery(name = "Encordadora.findAll", query = "SELECT e FROM Encordadora e")

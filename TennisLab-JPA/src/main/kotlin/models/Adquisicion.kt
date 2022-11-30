@@ -3,7 +3,7 @@ package models
 import models.enums.TipoTarea
 import org.hibernate.annotations.Type
 import java.util.*
-import jakarta.persistence.*
+import javax.persistence.*
 
 @Entity
 @NamedQuery(name = "Adquisicion.findAll", query = "SELECT a FROM Adquisicion a")
@@ -12,7 +12,7 @@ class Adquisicion(): Tarea() {
     @Type(type = "uuid-char")
     override var id: UUID = super.id
     // TODO revisar la relación adquisición-producto
-    @OneToMany() @Column(name = "producto_adquirido") @Embedded
+    @OneToMany() @Column(name = "producto_adquirido")
     lateinit var productoAdquirido: Producto
 
     constructor(
