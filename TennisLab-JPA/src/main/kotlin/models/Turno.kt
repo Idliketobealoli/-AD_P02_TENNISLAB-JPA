@@ -29,7 +29,7 @@ class Turno() {
     lateinit var horaFin: LocalDateTime
     var numPedidosActivos: Int = 0
     @OneToOne
-    var tarea1: Tarea? = null
+    lateinit var tarea1: Tarea
     @OneToOne
     var tarea2: Tarea? = null
 
@@ -39,7 +39,7 @@ class Turno() {
         maquina: Maquina,
         horaInicio: LocalDateTime,
         horaFin: LocalDateTime?,
-        tarea1: Tarea?,
+        tarea1: Tarea,
         tarea2: Tarea?
     ) : this() {
         this.id = id ?: UUID.randomUUID()
@@ -50,9 +50,6 @@ class Turno() {
         this.tarea1 = tarea1
         this.tarea2 = tarea2
 
-        if (this.tarea1 != null) {
-            numPedidosActivos++
-        }
         if (this.tarea2 != null) {
             numPedidosActivos++
         }

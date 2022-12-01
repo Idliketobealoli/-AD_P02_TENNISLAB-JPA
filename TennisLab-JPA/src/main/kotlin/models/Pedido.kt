@@ -8,7 +8,6 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-
 @NamedQuery(name = "Pedido.findAll", query = "SELECT p FROM Pedido p")
 class Pedido() {
     @Id @GeneratedValue
@@ -16,39 +15,49 @@ class Pedido() {
         name = "UUID",
         strategy = "org.hibernate.id.UUIDGenerator",
     )
-    @Column(name = "id", updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false)
     @Type(type = "uuid-char")
     lateinit var id: UUID
 
-    @OneToMany(mappedBy = "Pedido", fetch = FetchType.EAGER)
-    lateinit var tareas: List<Tarea>
+    //todo arreglar esta relación
+    /*@OneToMany(mappedBy = "Pedido", fetch = FetchType.EAGER)
+    lateinit var tareas: List<Tarea>*/
 
-    @Column(name = "cliente") @Embedded
+    @OneToOne
+    lateinit var tarea1: Tarea
+
+    @OneToOne
+    var tarea2: Tarea? = null
+
+
+    @OneToOne
     lateinit var client: User
 
     @OneToMany(mappedBy = "Pedido", fetch = FetchType.EAGER)
     lateinit var turnos: List<Turno>
 
-    @Column(name = "estado_pedido") @Embedded
+    @Column @Embedded // todo mirar cómo pasar el estado del pedido
     lateinit var state: PedidoEstado
-    @Column(name = "fecha_entrada")
+    @Column
     @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaEntrada: LocalDate
-    @Column(name = "fecha_programada")
+    @Column
     @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaProgramada: LocalDate
-    @Column(name = "fecha_salida")
+    @Column
     @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaSalida: LocalDate
-    @Column(name = "fecha_entrega")
+    @Column
     @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaEntrega: LocalDate
-    @Column(name = "precio")
+    @Column
     var precio: Double = 0.0
 
     constructor(
         id: UUID?,
-        tareas: List<Tarea>,
+//        tareas: List<Tarea>,
+        tarea1: Tarea,
+        tarea2: Tarea?,
         client: User,
         turnos: List<Turno>,
         state: PedidoEstado,
@@ -58,7 +67,10 @@ class Pedido() {
         fechaEntrega: LocalDate?
     ): this() {
         this.id = id ?: UUID.randomUUID()
-        this.tareas = tareas
+//        this.tareas = tareas
+        this.tarea1 = tarea1
+        this.tarea2 = tarea2
+
         this.client = client
         this.turnos = turnos
         this.state = state
@@ -66,6 +78,10 @@ class Pedido() {
         this.fechaProgramada = fechaProgramada
         this.fechaSalida = fechaSalida
         this.fechaEntrega = fechaEntrega ?: fechaSalida
-        this.precio = tareas.sumOf { it.precio }
+
+//        this.precio = tareas.sumOf { it.precio }
+        if (tarea2 != null) {
+            this.precio = tarea1.precio+tarea2.precio
+        }else this.precio = tarea1.precio
     }
 }
