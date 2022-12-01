@@ -13,9 +13,9 @@ import java.util.UUID
 
 class AdquisicionService: BaseService<Adquisicion, UUID, AdquisicionRepositoryImpl>(
     AdquisicionRepositoryImpl(
-        Adquisicion, Tarea, Producto, User
+        Adquisicion(), Tarea(), Producto(), User()
 )) {
-    val tareaRepo = TareaRepositoryImpl(Tarea, Producto, User)
+    val tareaRepo = TareaRepositoryImpl(Tarea(), Producto(), User())
     val mapper = TareaMapper()
 
     fun getAllAdquisiciones(): List<AdquisicionDTO> {

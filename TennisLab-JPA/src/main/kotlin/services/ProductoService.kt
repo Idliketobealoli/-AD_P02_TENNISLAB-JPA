@@ -6,7 +6,7 @@ import models.Producto
 import repositories.producto.ProductoRepositoryImpl
 import java.util.*
 
-class ProductoService: BaseService<Producto, UUID, ProductoRepositoryImpl>(ProductoRepositoryImpl(Producto)) {
+class ProductoService: BaseService<Producto, UUID, ProductoRepositoryImpl>(ProductoRepositoryImpl(Producto())) {
     val mapper = ProductoMapper()
 
     fun getAllProductos(): List<ProductoDTO> {

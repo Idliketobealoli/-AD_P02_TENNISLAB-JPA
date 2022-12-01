@@ -2,11 +2,13 @@ package repositories.personalizacion
 
 import db.HibernateManager
 import models.Personalizacion
+import models.Producto
+import models.Tarea
 import models.User
 import java.util.*
 import javax.persistence.TypedQuery
 
-class PersonalizacionRepositoryImpl: PersonalizacionRepository {
+class PersonalizacionRepositoryImpl(personalizacion: Personalizacion, tarea: Tarea, producto: Producto, user: User) : PersonalizacionRepository {
     override fun readAll(): List<Personalizacion> {
         var personalizacions = mutableListOf<Personalizacion>()
         HibernateManager.query {

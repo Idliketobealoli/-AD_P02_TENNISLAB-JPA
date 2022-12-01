@@ -1,11 +1,12 @@
 package repositories.personalizadora
 
 import db.HibernateManager
+import models.Maquina
 import models.Personalizadora
 import java.util.*
 import javax.persistence.TypedQuery
 
-class PersonalizadoraRepositoryImpl:PersonalizadoraRepository {
+class PersonalizadoraRepositoryImpl(personalizadora: Personalizadora, maquina: Maquina) :PersonalizadoraRepository {
     override fun readAll(): List<Personalizadora> {
         var personalizadoras = mutableListOf<Personalizadora>()
         HibernateManager.query {

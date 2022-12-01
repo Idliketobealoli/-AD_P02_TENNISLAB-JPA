@@ -11,9 +11,9 @@ import java.util.UUID
 
 class PersonalizadoraService: BaseService<Personalizadora, UUID, PersonalizadoraRepositoryImpl>(
     PersonalizadoraRepositoryImpl(
-    Personalizadora, Maquina
+    Personalizadora(), Maquina()
 )) {
-    val maquinaRepo = MaquinaRepositoryImpl(Maquina)
+    val maquinaRepo = MaquinaRepositoryImpl(Maquina())
     val mapper = MaquinaMapper()
 
     fun getAllPersonalizadoras(): List<PersonalizadoraDTO> {

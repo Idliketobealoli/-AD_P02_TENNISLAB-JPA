@@ -7,7 +7,6 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(name = "TURNOS")
 @NamedQuery(name = "Turno.findAll", query = "SELECT t FROM Turno t")
 class Turno() {
     @Id @GeneratedValue
@@ -15,17 +14,17 @@ class Turno() {
         name = "UUID",
         strategy = "org.hibernate.id.UUIDGenerator",
     )
-    @Column(name = "id")
+    @Column
     @Type(type = "uuid-char")
     lateinit var id: UUID
-    @OneToOne @Column(name = "worker")
+    @OneToOne
     lateinit var worker: User
-    @OneToOne @Column(name = "maquina")
+    @OneToOne
     lateinit var maquina: Maquina
-    @Column(name = "hora_inicio")
+    @Column
     @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var horaInicio: LocalDateTime
-    @Column(name = "hora_fin")
+    @Column
     @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var horaFin: LocalDateTime
     var numPedidosActivos: Int = 0

@@ -6,7 +6,6 @@ import java.util.UUID
 import javax.persistence.*
 
 @Entity
-@Table(name = "USERS")
 @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 class User() {
     @Id @GeneratedValue
@@ -14,19 +13,18 @@ class User() {
         name = "UUID",
         strategy = "org.hibernate.id.UUIDGenerator",
     )
-    @Column(name = "id")
     @Type(type = "uuid-char")
     lateinit var id:UUID
-    @Column(name = "nombre")
+    @Column
     lateinit var nombre: String
-    @Column(name = "apellido")
+    @Column
     lateinit var apellido: String
-    @Column(name = "telefono")
+    @Column
     lateinit var telefono: String
-    @Column(name = "email")
+    @Column
     lateinit var email: String
     lateinit var password: String
-    @Column(name = "perfil")
+    @Column
     lateinit var perfil: String
 
     constructor(

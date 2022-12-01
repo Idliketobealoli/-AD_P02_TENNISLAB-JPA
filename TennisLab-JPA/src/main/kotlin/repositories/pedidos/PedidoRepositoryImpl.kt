@@ -1,11 +1,11 @@
 package repositories.pedidos
 
 import db.HibernateManager
-import models.Pedido
+import models.*
 import java.util.*
 import javax.persistence.TypedQuery
 
-class PedidoRepositoryImpl: PedidoRepository {
+class PedidoRepositoryImpl(pedido: Pedido, user: User, maquina: Maquina, producto: Producto, tarea: Tarea) : PedidoRepository {
     override fun readAll(): List<Pedido> {
         var pedidos = mutableListOf<Pedido>()
         HibernateManager.query {

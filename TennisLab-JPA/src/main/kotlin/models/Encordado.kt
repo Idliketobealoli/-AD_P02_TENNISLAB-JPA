@@ -11,15 +11,15 @@ class Encordado():Tarea() {
     @Id @GeneratedValue()
     @Type(type = "uuid-char")
     override var id: UUID = super.id
-    @Column(name = "tension_horizontal")
+    @Column
     var tensionHorizontal: Double = 0.0
-    @Column(name = "cordaje_horizontal")
+    @Column
     lateinit var cordajeHorizontal: Producto
-    @Column(name = "tension_vertical")
+    @Column
     var tensionVertical: Double = 0.0
-    @Column(name = "cordaje_vertical")
+    @Column
     lateinit var cordajeVertical: Producto
-    @Column(name = "dos_nudos")
+    @Column
     var dosNudos: Boolean = false
 
     constructor(

@@ -14,11 +14,11 @@ class Personalizadora(): Maquina() {
     @GeneratedValue
     @Type(type = "uuid-char")
     override var id = super.id
-    @Column(name = "measures_maneuverability")
+    @Column
     var measuresManeuverability: Boolean = false
-    @Column(name = "measures_balance")
+    @Column
     var measuresBalance: Boolean = false
-    @Column(name = "measures_rigidity")
+    @Column
     var measuresRigidity: Boolean = false
     constructor(
         id: UUID?,

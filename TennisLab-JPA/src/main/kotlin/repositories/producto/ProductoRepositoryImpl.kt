@@ -5,7 +5,7 @@ import models.Producto
 import java.util.*
 import javax.persistence.TypedQuery
 
-class ProductoRepositoryImpl: ProductoRepository {
+class ProductoRepositoryImpl(producto: Producto) : ProductoRepository {
     override fun readAll(): List<Producto> {
         var productos = mutableListOf<Producto>()
         HibernateManager.query {

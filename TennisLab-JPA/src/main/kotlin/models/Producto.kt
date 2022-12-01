@@ -12,26 +12,24 @@ import java.util.*
  * Clase POKO de la entidad producto
  */
 @Entity
-@Table(name = "PRODUCTOS")
-@NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto")
+@NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p")
 class Producto() {
     @Id @GeneratedValue
     @GenericGenerator(
         name = "UUID",
         strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "id")
     @Type(type = "uuid-char")
     lateinit var id: UUID
-    @Column(name = "tipo_producto") @Embedded
+    @Column @Embedded // todo enum puede ser @Embeddable??
     lateinit var tipoProducto: TipoProducto
-    @Column(name = "marca")
+    @Column
     lateinit var marca: String
-    @Column(name = "modelo")
+    @Column
     lateinit var modelo: String
-    @Column(name = "precio")
+    @Column
     var precio: Double = 0.0
-    @Column(name = "stock")
+    @Column
     var stock: Int = 0
 
     constructor(

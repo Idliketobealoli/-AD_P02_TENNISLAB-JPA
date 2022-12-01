@@ -2,10 +2,11 @@ package repositories.encordadora
 
 import db.HibernateManager
 import models.Encordadora
+import models.Maquina
 import java.util.*
 import javax.persistence.TypedQuery
 
-class EncordadoraRepositoryImpl: EncordadoraRepository {
+class EncordadoraRepositoryImpl(encordadora: Encordadora, maquina: Maquina) : EncordadoraRepository {
     override fun readAll(): List<Encordadora> {
         var encordadoras = mutableListOf<Encordadora>()
         HibernateManager.query {

@@ -16,11 +16,11 @@ class Encordadora():Maquina() {
     @Id @GeneratedValue()
     @Type(type = "uuid-char")
     override var id = super.id
-    @Column(name = "is_manual")
+    @Column
     var isManual: Boolean = false
-    @Column(name = "max_tension")
+    @Column
     var maxTension: Double = 0.0
-    @Column(name = "min_tension")
+    @Column
     var minTension: Double = 0.0
     constructor(
         id: UUID?,

@@ -10,9 +10,9 @@ import repositories.maquina.MaquinaRepositoryImpl
 import java.util.*
 
 class EncordadoraService: BaseService<Encordadora, UUID, EncordadoraRepositoryImpl>(EncordadoraRepositoryImpl(
-    Encordadora, Maquina
+    Encordadora(), Maquina()
 )) {
-    val maquinaRepo = MaquinaRepositoryImpl(Maquina)
+    val maquinaRepo = MaquinaRepositoryImpl(Maquina())
     val mapper = MaquinaMapper()
 
     fun getAllEncordadoras(): List<EncordadoraDTO> {

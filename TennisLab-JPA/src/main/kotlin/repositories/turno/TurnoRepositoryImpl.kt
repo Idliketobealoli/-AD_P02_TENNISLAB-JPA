@@ -1,11 +1,11 @@
 package repositories.turno
 
 import db.HibernateManager
-import models.Turno
+import models.*
 import java.util.*
 import javax.persistence.TypedQuery
 
-class TurnoRepositoryImpl: TurnoRepository {
+class TurnoRepositoryImpl(turno: Turno, user: User, maquina: Maquina, producto: Producto, tarea: Tarea) : TurnoRepository {
     override fun readAll(): List<Turno> {
         var turnos = mutableListOf<Turno>()
         HibernateManager.query {

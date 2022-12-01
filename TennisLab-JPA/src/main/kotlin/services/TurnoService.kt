@@ -1,7 +1,6 @@
 package services
 
 import dto.TurnoDTO
-import entities.*
 import mappers.TurnoMapper
 import models.*
 import repositories.turno.TurnoRepositoryImpl
@@ -9,7 +8,7 @@ import java.util.UUID
 
 class TurnoService: BaseService<Turno, UUID, TurnoRepositoryImpl>(
     TurnoRepositoryImpl(
-    Turno, User, Maquina, Producto, Tarea
+    Turno(), User(), Maquina(), Producto(), Tarea()
 )) {
     val mapper = TurnoMapper()
 

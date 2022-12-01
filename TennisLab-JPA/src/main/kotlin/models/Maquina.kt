@@ -8,7 +8,7 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(name = "MAQUINAS")
+
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQuery(name = "Maquina.findAll", query = "SELECT m FROM Maquina m")
 @Embeddable
@@ -18,18 +18,18 @@ open class Maquina() {
         name = "UUID",
         strategy = "org.hibernate.id.UUIDGenerator",
     )
-    @Column(name = "id")
+    @Column
     @Type(type = "uuid-char")
     open lateinit var id: UUID
-    @Column(name = "modelo")
+    @Column
     lateinit var modelo: String
-    @Column(name = "marca")
+    @Column
     lateinit var marca: String
 
-    @Column(name = "fecha_adquisicion")
+    @Column
     @Type(type = "org.hibernate.type.LocalDateTimeType")
     lateinit var fechaAdquisicion: LocalDate
-    @Column(name = "numero_serie")
+    @Column
     lateinit var numeroSerie: String
 //    Para ver el tipo de máquina se puede mirar siguiendo el uuid
     @Embedded

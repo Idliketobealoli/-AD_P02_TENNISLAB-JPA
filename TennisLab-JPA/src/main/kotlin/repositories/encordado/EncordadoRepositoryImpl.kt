@@ -3,10 +3,13 @@ package repositories.encordado
 import db.HibernateManager
 import db.HibernateManager.manager
 import models.Encordado
+import models.Producto
+import models.Tarea
+import models.User
 import java.util.*
 import javax.persistence.TypedQuery
 
-class EncordadoRepositoryImpl: EncordadoRepository {
+class EncordadoRepositoryImpl(tarea: Tarea, producto: Producto, user: User, encordado: Encordado) : EncordadoRepository {
     override fun readAll(): List<Encordado> {
         var encordado = mutableListOf<Encordado>()
         HibernateManager.query {

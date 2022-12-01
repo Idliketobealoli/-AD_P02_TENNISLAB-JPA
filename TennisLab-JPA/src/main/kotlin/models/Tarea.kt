@@ -12,7 +12,6 @@ import javax.persistence.*
  * y el producto que se pasará
  */
 @Entity
-@Table(name = "TAREAS")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQuery(name = "Tarea.findAll", query = "SELECT t FROM Tarea t")
 class Tarea(
@@ -22,16 +21,16 @@ class Tarea(
         name = "UUID",
         strategy = "org.hibernate.id.UUIDGenerator",
     )
-    @Column(name = "uuid")
+    @Column
     @Type(type = "uuid-char")
-    open lateinit var id: UUID
-    @OneToMany(mappedBy = "tarea", orphanRemoval = true, fetch = FetchType.EAGER)
+    lateinit var id: UUID
+    @ManyToOne()
     lateinit var raqueta: Producto
-    @Column(name = "precio")
-    open var precio: Double = 0.0
+    @Column
+    var precio: Double = 0.0
     @ManyToOne()
     lateinit var user: User
-    @Column(name = "tipo_tarea")
+    @Column
     lateinit var tipoTarea: TipoTarea
 
     constructor(

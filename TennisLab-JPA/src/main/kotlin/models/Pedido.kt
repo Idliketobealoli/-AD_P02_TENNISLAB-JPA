@@ -8,7 +8,7 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(name = "PEDIDOS")
+
 @NamedQuery(name = "Pedido.findAll", query = "SELECT p FROM Pedido p")
 class Pedido() {
     @Id @GeneratedValue

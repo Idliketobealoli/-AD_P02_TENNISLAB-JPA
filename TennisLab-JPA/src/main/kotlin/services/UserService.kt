@@ -6,7 +6,7 @@ import models.User
 import repositories.clientes.UserRepositoryImpl
 import java.util.UUID
 
-class UserService: BaseService<User, UUID, UserRepositoryImpl>(UserRepositoryImpl(User)) {
+class UserService: BaseService<User, UUID, UserRepositoryImpl>(UserRepositoryImpl(User())) {
     val mapper = UserMapper()
 
     fun getAllUsers(): List<UserDTO> {

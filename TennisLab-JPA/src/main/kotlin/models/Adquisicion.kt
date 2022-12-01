@@ -12,7 +12,7 @@ class Adquisicion(): Tarea() {
     @Type(type = "uuid-char")
     override var id: UUID = super.id
     // TODO revisar la relación adquisición-producto
-    @OneToMany() @Column(name = "producto_adquirido")
+    @ManyToOne
     lateinit var productoAdquirido: Producto
 
     constructor(

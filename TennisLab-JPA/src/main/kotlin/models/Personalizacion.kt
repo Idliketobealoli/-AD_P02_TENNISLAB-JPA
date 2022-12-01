@@ -6,17 +6,17 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-//@Table(name = "PERSONALIZACIONES")
+
 @NamedQuery(name = "Personalizacion.findAll", query = "SELECT p FROM Personalizacion p")
 class Personalizacion(): Tarea() {
     @Id @GeneratedValue()
     @Type(type = "uuid-char")
     override var id: UUID = super.id
-    @Column(name = "peso")
+    @Column
     var peso: Int = 0
-    @Column(name = "balance")
+    @Column
     var balance: Double = 0.0
-    @Column(name = "rigidez")
+    @Column
     var rigidez: Int = 0
 
     constructor(

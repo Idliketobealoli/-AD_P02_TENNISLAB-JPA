@@ -1,10 +1,6 @@
 package services
 
 import dto.PersonalizacionDTO
-import entities.PersonalizacionDao
-import entities.ProductoDao
-import entities.TareaDao
-import entities.UserDao
 import mappers.TareaMapper
 import models.Personalizacion
 import models.Producto
@@ -17,9 +13,9 @@ import java.util.UUID
 
 class PersonalizacionService: BaseService<Personalizacion, UUID, PersonalizacionRepositoryImpl>(
     PersonalizacionRepositoryImpl(
-    Personalizacion, Tarea, Producto, User
+    Personalizacion(), Tarea(), Producto(), User()
 )) {
-    val tareaRepo = TareaRepositoryImpl(Tarea, Producto, User)
+    val tareaRepo = TareaRepositoryImpl(Tarea(), Producto(), User())
     val mapper = TareaMapper()
 
     fun getAllPersonalizaciones(): List<PersonalizacionDTO> {
